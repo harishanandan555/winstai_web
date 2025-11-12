@@ -1,0 +1,39 @@
+{
+  "name": "winstai-stock-analyzer",
+  "version": "1.0.0",
+  "description": "Professional Stock Market Analyzer built with React.js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "chart.js": "^4.4.0",
+    "react-chartjs-2": "^5.2.0",
+    "axios": "^1.6.2",
+    "lucide-react": "^0.263.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.4.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-react": "^7.33.0"
+  },
+  "keywords": [
+    "stock",
+    "market",
+    "analyzer",
+    "react",
+    "dashboard",
+    "finance",
+    "trading"
+  ],
+  "author": "WINSTAI",
+  "license": "MIT"
+}

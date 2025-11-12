@@ -1,0 +1,143 @@
+.table-section {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--tertiary) 100%);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.table-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  padding: 0.5rem 1rem;
+  flex: 1;
+  max-width: 300px;
+}
+
+.search-wrapper svg {
+  color: var(--text-secondary);
+}
+
+.search-input {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.stocks-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stocks-table thead {
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.stocks-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stock-row {
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.stock-row:hover {
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.stocks-table td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.symbol {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.positive {
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+.negative {
+  color: var(--accent-3);
+  font-weight: 600;
+}
+
+.btn-buy {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(90deg, var(--accent-2), #00ff6b);
+  color: var(--primary);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-wrapper {
+    max-width: 100%;
+  }
+}
