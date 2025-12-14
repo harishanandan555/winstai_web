@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Download, 
-  Smartphone, 
-  TrendingUp, 
-  BarChart3, 
-  Brain, 
+import {
+  Download,
+  Smartphone,
+  TrendingUp,
+  BarChart3,
+  Brain,
   Zap,
   ArrowRight,
   Shield,
@@ -18,6 +18,8 @@ import {
   Activity
 } from 'lucide-react';
 import '../styles/LandingPage.css';
+import bannerVideo from '../assets/banner_video.mp4';
+import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
   const [scrollY, setScrollY] = useState(0);
@@ -105,11 +107,6 @@ export default function LandingPage() {
   return (
     <div className="landing-page">
       {/* Animated Background */}
-      <div className="animated-bg">
-        <div className="gradient-orb orb-1" style={{ transform: `translateY(${scrollY * 0.5}px)` }}></div>
-        <div className="gradient-orb orb-2" style={{ transform: `translateY(${scrollY * 0.3}px)` }}></div>
-        <div className="gradient-orb orb-3" style={{ transform: `translateY(${scrollY * 0.4}px)` }}></div>
-      </div>
 
       {/* Premium Navigation */}
       <nav className="premium-nav">
@@ -123,7 +120,7 @@ export default function LandingPage() {
               <span className="logo-badge">Pro</span>
             </div>
           </div>
-          
+
           <div className="nav-links">
             <button onClick={() => scrollToSection('features')} className="nav-link">
               Features
@@ -185,6 +182,7 @@ export default function LandingPage() {
               <button className="btn btn-secondary btn-large" onClick={handleDownloadAndroid}>
                 <Download size={20} />
                 Download for Android
+                <ArrowRight size={18} />
               </button>
             </div>
 
@@ -195,70 +193,27 @@ export default function LandingPage() {
           </div>
 
           <div className="hero-right">
-            <div className="phone-showcase">
-              <div className="phone-frame">
-                <div className="notch"></div>
-                <div className="screen">
-                  <div className="screen-header">
-                    <span className="time">9:41</span>
-                    <div className="status-icons">
-                      <Zap size={14} />
-                      <Activity size={14} />
-                    </div>
-                  </div>
-
-                  <div className="screen-content">
-                    <div className="ai-indicator">
-                      <div className="pulse"></div>
-                      <span>AI Analysis Active</span>
-                    </div>
-
-                    <div className="chart-container">
-                      <div className="price-display">
-                        <div className="ticker">NVDA</div>
-                        <div className="price">$1,245.60</div>
-                        <div className="change positive">↑ 4.32%</div>
-                      </div>
-                      <div className="advanced-chart">
-                        <svg viewBox="0 0 200 100" className="chart-svg">
-                          <path d="M 0 70 Q 50 40 100 35 T 200 20" fill="none" stroke="url(#gradient)" strokeWidth="3" />
-                          <defs>
-                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                              <stop offset="0%" stopColor="#00d4ff" />
-                              <stop offset="100%" stopColor="#00ff88" />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                      </div>
-                    </div>
-
-                    <div className="ai-insights">
-                      <div className="insight-badge">
-                        <Brain size={12} />
-                        <span>Strong Buy Signal</span>
-                      </div>
-                      <div className="insight-detail">
-                        Confidence: 89%
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="phone-bottom"></div>
-              </div>
-
-              {/* Floating Cards */}
-              <div className="floating-card card-1">
-                <Brain size={20} />
-                <span>Neural Analysis</span>
-              </div>
-              <div className="floating-card card-2">
-                <TrendingUp size={20} />
-                <span>Trend Prediction</span>
-              </div>
-              <div className="floating-card card-3">
-                <Zap size={20} />
-                <span>Real-Time Feed</span>
-              </div>
+            <div className="video-showcase" style={{
+              width: '100%',
+              height: '100%',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 50px rgba(0, 212, 255, 0.2)',
+              border: '1px solid rgba(0, 212, 255, 0.1)'
+            }}>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              >
+                <source src={bannerVideo} type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
@@ -279,14 +234,14 @@ export default function LandingPage() {
           {features.map((feature, idx) => {
             const Icon = feature.icon;
             return (
-              <div 
+              <div
                 key={idx}
                 className={`premium-feature-card color-${feature.color}`}
                 onMouseEnter={() => setHoveredFeature(idx)}
                 onMouseLeave={() => setHoveredFeature(null)}
               >
                 <div className="feature-glow"></div>
-                
+
                 <div className="feature-header">
                   <div className={`feature-icon color-${feature.color}`}>
                     <Icon size={32} />
@@ -310,7 +265,7 @@ export default function LandingPage() {
       <section className="tech-specs">
         <div className="specs-container">
           <h2>Built for Performance</h2>
-          
+
           <div className="specs-grid">
             <div className="spec-card">
               <Cpu className="spec-icon" />
@@ -342,7 +297,7 @@ export default function LandingPage() {
       {/* Testimonials */}
       <section id="testimonials" className="testimonials-section">
         <h2>Trusted by Professional Traders</h2>
-        
+
         <div className="testimonials-grid">
           {testimonials.map((testimonial, idx) => (
             <div key={idx} className="testimonial-card">
@@ -464,7 +419,7 @@ export default function LandingPage() {
         <div className="cta-content">
           <h2>Join 500K+ Professional Traders</h2>
           <p>Start making smarter investment decisions today with AI-powered market intelligence</p>
-          
+
           <div className="cta-button-group">
             <button className="btn btn-primary btn-xl" onClick={handleDownloadiOS}>
               Download for iOS
@@ -517,8 +472,9 @@ export default function LandingPage() {
 
           <div className="footer-column">
             <h4>Legal</h4>
-            <a href="#privacy">Privacy</a>
-            <a href="#terms">Terms</a>
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
+            <Link to="/cancellation">Refunds</Link>
             <a href="#contact">Contact</a>
           </div>
         </div>
