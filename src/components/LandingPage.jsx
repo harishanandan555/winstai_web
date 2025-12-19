@@ -18,7 +18,7 @@ import {
   Activity
 } from 'lucide-react';
 import '../styles/LandingPage.css';
-import bannerVideo from '../assets/banner_video.mp4';
+import VideoSlideshow from './VideoSlideshow';
 import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
@@ -142,81 +142,10 @@ export default function LandingPage() {
 
       {/* Premium Hero Section */}
       <section className="premium-hero">
-        <div className="hero-grid">
-          <div className="hero-left">
-            <div className="hero-badge">
-              <Sparkles className="badge-icon" />
-              <span>Powered by Advanced AI</span>
-            </div>
-
-            <h1 className="hero-title">
-              <span className="title-line-1">Professional Stock Analysis</span>
-              <span className="title-line-2 gradient-text">Evolved Beyond Human Limits</span>
-            </h1>
-
-            <p className="hero-description">
-              Experience institutional-grade financial intelligence powered by neural networks trained on decades of market data. Make investment decisions with AI-backed confidence.
-            </p>
-
-            <div className="hero-stats">
-              <div className="stat-item">
-                <div className="stat-value">94%</div>
-                <div className="stat-label">Prediction Accuracy</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-value">24/7</div>
-                <div className="stat-label">Market Monitoring</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-value">10M+</div>
-                <div className="stat-label">Data Points/Day</div>
-              </div>
-            </div>
-
-            <div className="hero-buttons">
-              <button className="btn btn-primary btn-large" onClick={handleDownloadiOS}>
-                <Download size={20} />
-                Download for iOS
-                <ArrowRight size={18} />
-              </button>
-              <button className="btn btn-secondary btn-large" onClick={handleDownloadAndroid}>
-                <Download size={20} />
-                Download for Android
-                <ArrowRight size={18} />
-              </button>
-            </div>
-
-            <div className="trust-badge">
-              <Lock size={16} />
-              <span>256-bit Enterprise Security • Biometric Auth</span>
-            </div>
-          </div>
-
-          <div className="hero-right">
-            <div className="video-showcase" style={{
-              width: '100%',
-              height: '100%',
-              borderRadius: '24px',
-              overflow: 'hidden',
-              boxShadow: '0 20px 50px rgba(0, 212, 255, 0.2)',
-              border: '1px solid rgba(0, 212, 255, 0.1)'
-            }}>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
-                }}
-              >
-                <source src={bannerVideo} type="video/mp4" />
-              </video>
-            </div>
-          </div>
-        </div>
+        <VideoSlideshow
+          onDownloadiOS={handleDownloadiOS}
+          onDownloadAndroid={handleDownloadAndroid}
+        />
 
         <div className="scroll-indicator">
           <ChevronDown className="chevron-animate" />
