@@ -20,6 +20,9 @@ import {
 import '../styles/LandingPage.css';
 import VideoSlideshow from './VideoSlideshow';
 import { Link } from 'react-router-dom';
+import winstaiLogo from '../assets/winstai-logo.jpg';
+
+import Footer from './Footer';
 
 export default function LandingPage() {
   const [scrollY, setScrollY] = useState(0);
@@ -112,12 +115,9 @@ export default function LandingPage() {
       <nav className="premium-nav">
         <div className="nav-container">
           <div className="logo">
-            <div className="logo-glow">
-              <Brain className="logo-icon" />
-            </div>
+            <img src={winstaiLogo} alt="WinstAI Logo" style={{ height: '40px', borderRadius: '8px' }} />
             <div>
-              <span className="logo-text">WINSTAI</span>
-              <span className="logo-badge">Pro</span>
+              <span className="logo-text" style={{ color: 'white', background: 'none', WebkitTextFillColor: 'initial' }}>WINSTAI</span>
             </div>
           </div>
 
@@ -131,6 +131,9 @@ export default function LandingPage() {
             <button onClick={() => scrollToSection('pricing')} className="nav-link">
               Pricing
             </button>
+            <Link to="/blog" className="nav-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+              Blog
+            </Link>
           </div>
 
           <button className="nav-cta" onClick={handleDownloadiOS}>
@@ -377,41 +380,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Premium Footer */}
-      <footer className="premium-footer">
-        <div className="footer-grid">
-          <div className="footer-column">
-            <h4>WINSTAI</h4>
-            <p>AI-Powered Financial Intelligence</p>
-          </div>
-
-          <div className="footer-column">
-            <h4>Product</h4>
-            <a href="#features">Features</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#pricing">Pricing</a>
-          </div>
-
-          <div className="footer-column">
-            <h4>Company</h4>
-            <a href="#about">About</a>
-            <a href="#blog">Blog</a>
-            <a href="#careers">Careers</a>
-          </div>
-
-          <div className="footer-column">
-            <h4>Legal</h4>
-            <Link to="/privacy">Privacy</Link>
-            <Link to="/terms">Terms</Link>
-            <Link to="/cancellation">Refunds</Link>
-            <a href="#contact">Contact</a>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <p>&copy; 2025 WINSTAI. Professional AI Stock Analysis for Everyone.</p>
-        </div>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

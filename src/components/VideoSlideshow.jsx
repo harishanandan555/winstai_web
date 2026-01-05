@@ -113,6 +113,20 @@ const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
                 ))}
             </div>
 
+            {/* Mobile Video Container (Separate from background) */}
+            <div className="mobile-video-container">
+                <video
+                    key={slides[currentSlide].video} // Key to force reload on slide change
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="mobile-video"
+                >
+                    <source src={slides[currentSlide].video} type="video/mp4" />
+                </video>
+            </div>
+
             {/* Hero Content Overlay */}
             <div className="hero-content-overlay">
                 {slides.map((slide, index) => (
