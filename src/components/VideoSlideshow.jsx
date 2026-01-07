@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause, Download, ArrowRight, Lock, Sparkles } from 'lucide-react';
 import '../styles/VideoSlideshow.css';
 
-// Import all videos
+// Import video
 import video1 from '../assets/banner_video.mp4';
-import video2 from '../assets/WinstAI Video2.mp4';
-import video3 from '../assets/WinstAI Video3.mp4';
-import video4 from '../assets/WinstAI Video4.mp4';
+
+// Import banner images
+import banner1 from '../assets/banner/1.png';
+import banner3 from '../assets/banner/3.png';
+import banner5 from '../assets/banner/5.png';
+import banner7 from '../assets/banner/7.png';
 
 const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,7 +18,8 @@ const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
 
     const slides = [
         {
-            video: video1,
+            type: 'video',
+            src: video1,
             badge: "Powered by Advanced AI",
             title: "Professional Stock Analysis",
             subtitle: "Evolved Beyond Human Limits",
@@ -27,40 +31,24 @@ const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
             ]
         },
         {
-            video: video2,
-            badge: "Professional Grade Tools",
-            title: "Advanced Charting",
-            subtitle: "Institutional-Level Analysis",
-            description: "Access professional charting tools with 50+ technical indicators, advanced drawing tools, and customizable timeframes. Visualize market trends like never before.",
-            stats: [
-                { value: "50+", label: "Technical Indicators" },
-                { value: "Real-time", label: "Data Streaming" },
-                { value: "∞", label: "Watchlists" }
-            ]
+            type: 'image',
+            src: banner1,
+            badge: "", title: "", subtitle: "", description: "", stats: []
         },
         {
-            video: video3,
-            badge: "Lightning Fast Performance",
-            title: "Real-Time Monitoring",
-            subtitle: "Never Miss an Opportunity",
-            description: "Stay ahead with sub-millisecond data streaming and instant notifications. Our AI monitors markets 24/7 so you don't have to, alerting you to critical opportunities.",
-            stats: [
-                { value: "<1ms", label: "Data Latency" },
-                { value: "24/7", label: "AI Monitoring" },
-                { value: "Instant", label: "Notifications" }
-            ]
+            type: 'image',
+            src: banner3,
+            badge: "", title: "", subtitle: "", description: "", stats: []
         },
         {
-            video: video4,
-            badge: "AI-Powered Insights",
-            title: "Smart Portfolio Management",
-            subtitle: "Personalized for Your Goals",
-            description: "Optimize your investments with AI-driven recommendations tailored to your risk profile and financial goals. Let machine learning work for your wealth.",
-            stats: [
-                { value: "AI", label: "Recommendations" },
-                { value: "Custom", label: "Risk Profiles" },
-                { value: "Auto", label: "Rebalancing" }
-            ]
+            type: 'image',
+            src: banner5,
+            badge: "", title: "", subtitle: "", description: "", stats: []
+        },
+        {
+            type: 'image',
+            src: banner7,
+            badge: "", title: "", subtitle: "", description: "", stats: []
         }
     ];
 
@@ -92,87 +80,93 @@ const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
 
     return (
         <div className="video-slideshow-fullwidth">
-            {/* Video Background */}
+            {/* Background */}
             <div className="video-background">
                 {slides.map((slide, index) => (
                     <div
                         key={index}
                         className={`video-slide ${index === currentSlide ? 'active' : ''}`}
                     >
-                        <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="background-video"
-                        >
-                            <source src={slide.video} type="video/mp4" />
-                        </video>
-                        <div className="video-overlay"></div>
+                        {slide.type === 'video' ? (
+                            null // No background video for video slides
+                        ) : (
+                            <img
+                                src={slide.src}
+                                alt={slide.title}
+                                className="background-video" // Keeping same class for consistent styling
+                                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                            />
+                        )}
+                        {slide.type === 'video' && <div className="video-overlay"></div>}
                     </div>
                 ))}
             </div>
 
-            {/* Mobile Video Container (Separate from background) */}
-            <div className="mobile-video-container">
-                <video
-                    key={slides[currentSlide].video} // Key to force reload on slide change
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="mobile-video"
-                >
-                    <source src={slides[currentSlide].video} type="video/mp4" />
-                </video>
-            </div>
+            {/* Mobile View Container (Separate from background) - Only for Video */}
+            {slides[currentSlide].type === 'video' && (
+                <div className="mobile-video-container">
+                    <video
+                        key={slides[currentSlide].src} // Key to force reload on slide change
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="mobile-video"
+                    >
+                        <source src={slides[currentSlide].src} type="video/mp4" />
+                    </video>
+                </div>
+            )}
 
             {/* Hero Content Overlay */}
             <div className="hero-content-overlay">
                 {slides.map((slide, index) => (
-                    <div
-                        key={index}
-                        className={`hero-content ${index === currentSlide ? 'active' : ''}`}
-                    >
-                        <div className="hero-badge">
-                            <Sparkles className="badge-icon" />
-                            <span>{slide.badge}</span>
+                    // Only render text content for video slides
+                    slide.type === 'video' ? (
+                        <div
+                            key={index}
+                            className={`hero-content ${index === currentSlide ? 'active' : ''}`}
+                        >
+                            <div className="hero-badge">
+                                <Sparkles className="badge-icon" />
+                                <span>{slide.badge}</span>
+                            </div>
+
+                            <h1 className="hero-title">
+                                <span className="title-line-1">{slide.title}</span>
+                                <span className="title-line-2 gradient-text">{slide.subtitle}</span>
+                            </h1>
+
+                            <p className="hero-description">{slide.description}</p>
+
+                            <div className="hero-stats">
+                                {slide.stats.map((stat, idx) => (
+                                    <div key={idx} className="stat-item">
+                                        <div className="stat-value">{stat.value}</div>
+                                        <div className="stat-label">{stat.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="hero-buttons">
+                                <button className="btn btn-primary btn-large" onClick={onDownloadiOS}>
+                                    <Download size={20} />
+                                    Download for iOS
+                                    <ArrowRight size={18} />
+                                </button>
+                                <button className="btn btn-secondary btn-large" onClick={onDownloadAndroid}>
+                                    <Download size={20} />
+                                    Download for Android
+                                    <ArrowRight size={18} />
+                                </button>
+                            </div>
+
+                            <div className="trust-badge">
+                                <Lock size={16} />
+                                <span>256-bit Enterprise Security • Biometric Auth</span>
+                            </div>
                         </div>
-
-                        <h1 className="hero-title">
-                            <span className="title-line-1">{slide.title}</span>
-                            <span className="title-line-2 gradient-text">{slide.subtitle}</span>
-                        </h1>
-
-                        <p className="hero-description">{slide.description}</p>
-
-                        <div className="hero-stats">
-                            {slide.stats.map((stat, idx) => (
-                                <div key={idx} className="stat-item">
-                                    <div className="stat-value">{stat.value}</div>
-                                    <div className="stat-label">{stat.label}</div>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="hero-buttons">
-                            <button className="btn btn-primary btn-large" onClick={onDownloadiOS}>
-                                <Download size={20} />
-                                Download for iOS
-                                <ArrowRight size={18} />
-                            </button>
-                            <button className="btn btn-secondary btn-large" onClick={onDownloadAndroid}>
-                                <Download size={20} />
-                                Download for Android
-                                <ArrowRight size={18} />
-                            </button>
-                        </div>
-
-                        <div className="trust-badge">
-                            <Lock size={16} />
-                            <span>256-bit Enterprise Security • Biometric Auth</span>
-                        </div>
-                    </div>
+                    ) : null
                 ))}
             </div>
 
