@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Bell, User, TrendingUp } from 'lucide-react';
 import '../styles/Navbar.css';
-import winstaiLogo from '../assets/winstai-logo.jpg';
+import winstaiLogo from '../assets/winstai-logo.png';
 
 function Navbar({ activeNav, setActiveNav }) {
   const [searchActive, setSearchActive] = useState(false);
@@ -20,7 +20,7 @@ function Navbar({ activeNav, setActiveNav }) {
         {/* Logo */}
         <div className="logo" style={{ color: 'white' }}>
           <img src={winstaiLogo} alt="WinstAI Logo" style={{ width: '28px', height: '28px', borderRadius: '4px', objectFit: 'cover' }} />
-          <span>WINSTAI</span>
+
         </div>
 
         {/* Navigation Menu */}

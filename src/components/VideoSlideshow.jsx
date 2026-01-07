@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Download, ArrowRight, Lock, Sparkles } from 'lucide-react';
+import { Download, ArrowRight, Lock, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import '../styles/VideoSlideshow.css';
 
-// Import video
-import video1 from '../assets/banner_video.mp4';
+
 
 // Import background
 import backgroundBanner from '../assets/banner.png';
@@ -20,8 +19,8 @@ const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
 
     const slides = [
         {
-            type: 'video',
-            src: video1,
+            type: 'image',
+            mobileSrc: banner1,
             badge: "Powered by Advanced AI",
             title: "Professional Stock Analysis",
             subtitle: "Evolved Beyond Human Limits",
@@ -96,6 +95,14 @@ const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
         return () => clearInterval(interval);
     }, [isPlaying, slides.length]);
 
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    };
+
     return (
         <div className="video-slideshow-fullwidth">
             {/* Static Background */}
@@ -107,45 +114,29 @@ const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
                         className="background-video"
                         style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                     />
-                    <div className="video-overlay"></div>
                 </div>
             </div>
 
-            {/* Mobile Phone Container - Shows video for first slide, images for others */}
+            {/* Mobile Phone Container - Shows images for all slides */}
             <div className="mobile-video-container">
-                {slides[currentSlide].type === 'video' ? (
-                    <video
-                        key={slides[currentSlide].src}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="mobile-video"
-                    >
-                        <source src={slides[currentSlide].src} type="video/mp4" />
-                    </video>
-                ) : (
-                    slides.map((slide, index) => (
-                        slide.type === 'image' && (
-                            <img
-                                key={index}
-                                src={slide.mobileSrc}
-                                alt={slide.title}
-                                className={`mobile-video ${index === currentSlide ? 'active' : ''}`}
-                                style={{
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    opacity: index === currentSlide ? 1 : 0,
-                                    transition: 'opacity 1s ease-in-out'
-                                }}
-                            />
-                        )
-                    ))
-                )}
+                {slides.map((slide, index) => (
+                    <img
+                        key={index}
+                        src={slide.mobileSrc}
+                        alt={slide.title}
+                        className={`mobile-video ${index === currentSlide ? 'active' : ''}`}
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'contain',
+                            opacity: index === currentSlide ? 1 : 0,
+                            transition: 'opacity 1s ease-in-out'
+                        }}
+                    />
+                ))}
             </div>
 
             {/* Hero Content Overlay */}
@@ -178,6 +169,14 @@ const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
                     </div>
                 ))}
             </div>
+
+            {/* Navigation Controls */}
+            <button className="nav-arrow prev-arrow" onClick={prevSlide}>
+                <ChevronLeft size={32} />
+            </button>
+            <button className="nav-arrow next-arrow" onClick={nextSlide}>
+                <ChevronRight size={32} />
+            </button>
 
             {/* Bottom Download Buttons - For All Slides */}
             <div className="bottom-download-section">

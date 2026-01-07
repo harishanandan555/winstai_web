@@ -20,7 +20,7 @@ import {
 import '../styles/LandingPage.css';
 import VideoSlideshow from './VideoSlideshow';
 import { Link } from 'react-router-dom';
-import winstaiLogo from '../assets/winstai-logo.jpg';
+import winstaiLogo from '../assets/winstai-logo.png';
 
 import Footer from './Footer';
 
@@ -116,9 +116,7 @@ export default function LandingPage() {
         <div className="nav-container">
           <div className="logo">
             <img src={winstaiLogo} alt="WinstAI Logo" style={{ height: '40px', borderRadius: '8px' }} />
-            <div>
-              <span className="logo-text" style={{ color: 'white', background: 'none', WebkitTextFillColor: 'initial' }}>WINSTAI</span>
-            </div>
+
           </div>
 
           <div className="nav-links">

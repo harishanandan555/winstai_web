@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Download } from 'lucide-react';
 import '../styles/Header.css';
-import winstaiLogo from '../assets/winstai-logo.jpg';
+import winstaiLogo from '../assets/winstai-logo.png';
 
 const Header = () => {
     const handleDownloadiOS = () => {
@@ -14,9 +14,7 @@ const Header = () => {
             <div className="nav-container">
                 <Link to="/" className="logo">
                     <img src={winstaiLogo} alt="WinstAI Logo" style={{ height: '40px', borderRadius: '8px' }} />
-                    <div>
-                        <span className="logo-text" style={{ color: 'white', background: 'none', WebkitTextFillColor: 'initial' }}>WINSTAI</span>
-                    </div>
+
                 </Link>
 
                 <div className="nav-links">
