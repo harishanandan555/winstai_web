@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Download, ArrowRight, Lock, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import '../styles/VideoSlideshow.css';
 
-
-
 // Import background
-import backgroundBanner from '../assets/banner.png';
+import backgroundBanner from '../assets/banner/banner.png';
 
 // Import mobile phone images
 import banner1 from '../assets/banner/webimages/Image1.png';

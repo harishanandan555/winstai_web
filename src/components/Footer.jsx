@@ -30,11 +30,12 @@ const Footer = () => {
                     <Link to="/privacy">Privacy</Link>
                     <Link to="/terms">Terms</Link>
                     <Link to="/cancellation">Refunds</Link>
-                    <a href="/#contact">Contact</a>
+                    {/* <a href="mailto:support@winstai.com">support@winstai.com</a> - Moved to bottom */}
                 </div>
             </div>
 
             <div className="footer-bottom">
+                <p className="support-text">Need assistance? Reach out to us at <a href="mailto:support@winstai.com">support@winstai.com</a></p>
                 <p>&copy; 2025 WINSTAI. Professional AI Stock Analysis for Everyone.</p>
             </div>
         </footer>
