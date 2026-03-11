@@ -43,7 +43,7 @@ const TermsOfService = () => {
                         WebkitTextFillColor: 'transparent'
                     }}>WINST AI – Terms of Service</h1>
 
-                    <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Last Updated: [Insert Date]</p>
+                    <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Last Updated: March 11, 2026</p>
 
                     <div className="terms-content" style={{ lineHeight: '1.8', fontSize: '1.05rem' }}>
 
