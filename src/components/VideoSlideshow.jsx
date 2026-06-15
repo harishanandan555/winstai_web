@@ -6,10 +6,10 @@ import '../styles/VideoSlideshow.css';
 import backgroundBanner from '../assets/banner/banner.png';
 
 // Import mobile phone images
-import banner1 from '../assets/banner/webimages/Image1.png';
-import banner2 from '../assets/banner/webimages/Image2.png';
-import banner3 from '../assets/banner/webimages/Image3.png';
-import banner4 from '../assets/banner/webimages/Image4.png';
+import pic1 from '../assets/banner/webimages/Pic1.png';
+import pic2 from '../assets/banner/webimages/Pic2.png';
+import pic3 from '../assets/banner/webimages/Pic3.png';
+import pic4 from '../assets/banner/webimages/Pic4.png';
 
 const VideoSlideshow = ({ onDownloadiOS }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -18,7 +18,7 @@ const VideoSlideshow = ({ onDownloadiOS }) => {
     const slides = [
         {
             type: 'image',
-            mobileSrc: banner1,
+            mobileSrc: pic1,
             badge: "Powered by Advanced AI",
             title: "Professional Stock Analysis",
             subtitle: "Evolved Beyond Human Limits",
@@ -31,7 +31,7 @@ const VideoSlideshow = ({ onDownloadiOS }) => {
         },
         {
             type: 'image',
-            mobileSrc: banner1,
+            mobileSrc: pic1,
             badge: "AI-Powered Insights",
             title: "Smart Stock Recommendations",
             subtitle: "Data-Driven Investment Decisions",
@@ -44,7 +44,7 @@ const VideoSlideshow = ({ onDownloadiOS }) => {
         },
         {
             type: 'image',
-            mobileSrc: banner2,
+            mobileSrc: pic2,
             badge: "Portfolio Management",
             title: "Track Your Investments",
             subtitle: "Complete Portfolio Overview",
@@ -57,7 +57,7 @@ const VideoSlideshow = ({ onDownloadiOS }) => {
         },
         {
             type: 'image',
-            mobileSrc: banner3,
+            mobileSrc: pic3,
             badge: "Market Intelligence",
             title: "Advanced Market Analysis",
             subtitle: "Stay Ahead of the Market",
@@ -70,7 +70,7 @@ const VideoSlideshow = ({ onDownloadiOS }) => {
         },
         {
             type: 'image',
-            mobileSrc: banner4,
+            mobileSrc: pic4,
             badge: "Risk Management",
             title: "Intelligent Risk Assessment",
             subtitle: "Invest with Confidence",
