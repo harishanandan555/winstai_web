@@ -11,7 +11,7 @@ import banner2 from '../assets/banner/webimages/Image2.png';
 import banner3 from '../assets/banner/webimages/Image3.png';
 import banner4 from '../assets/banner/webimages/Image4.png';
 
-const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
+const VideoSlideshow = ({ onDownloadiOS }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
 
@@ -182,11 +182,6 @@ const VideoSlideshow = ({ onDownloadiOS, onDownloadAndroid }) => {
                     <button className="btn btn-primary btn-large" onClick={onDownloadiOS}>
                         <Download size={20} />
                         Download for iOS
-                        <ArrowRight size={18} />
-                    </button>
-                    <button className="btn btn-secondary btn-large" onClick={onDownloadAndroid}>
-                        <Download size={20} />
-                        Download for Android
                         <ArrowRight size={18} />
                     </button>
                 </div>

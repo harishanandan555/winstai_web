@@ -38,10 +38,6 @@ export default function LandingPage() {
     window.open('https://apps.apple.com/app/winstai-stock-analyzer', '_blank');
   };
 
-  const handleDownloadAndroid = () => {
-    window.open('https://play.google.com/store/apps/details?id=com.winstai.stockanalyzer', '_blank');
-  };
-
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -145,7 +141,6 @@ export default function LandingPage() {
       <section className="premium-hero">
         <VideoSlideshow
           onDownloadiOS={handleDownloadiOS}
-          onDownloadAndroid={handleDownloadAndroid}
         />
 
         <div className="scroll-indicator">
@@ -254,7 +249,7 @@ export default function LandingPage() {
       {/* Pricing Section */}
       <section id="pricing" className="pricing-section">
         <h2>Simple, Transparent Pricing</h2>
-        <p className="pricing-subtitle">Pay with AI tokens. Go ad-free with Premium. Available on both iOS and Android.</p>
+        <p className="pricing-subtitle">Pay with AI tokens. Go ad-free with Premium. Available on iOS.</p>
 
         <div className="pricing-cards">
           <div className="pricing-card starter">
@@ -353,10 +348,6 @@ export default function LandingPage() {
           <div className="cta-button-group">
             <button className="btn btn-primary btn-xl" onClick={handleDownloadiOS}>
               Download for iOS
-              <ArrowRight size={20} />
-            </button>
-            <button className="btn btn-secondary btn-xl" onClick={handleDownloadAndroid}>
-              Download for Android
               <ArrowRight size={20} />
             </button>
           </div>
