@@ -59,8 +59,8 @@ const CancellationRefundPolicy = () => {
 
                         <h2 style={{ fontSize: '1.8rem', fontWeight: '700', marginTop: '3rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>2. Free Users & Tokens</h2>
                         <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', marginBottom: '1rem', color: 'var(--text-secondary)' }}>
-                            <li>Free Users receive 50,000 free tokens upon signing up.</li>
-                            <li>Free Users may earn additional tokens by watching ads.</li>
+                            <li>Free Users receive 20,000 free tokens upon signing up.</li>
+                            <li>Free Users may earn an additional 25,000 tokens by watching ads.</li>
                         </ul>
                         <p style={{ marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>Since no payment is involved, no refunds apply to free tokens or ad-earned tokens.</p>
 

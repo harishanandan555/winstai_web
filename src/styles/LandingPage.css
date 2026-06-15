@@ -1049,7 +1049,16 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-note {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  max-width: 640px;
+  margin: 0 auto 4rem;
+  line-height: 1.6;
 }
 
 .pricing-card {

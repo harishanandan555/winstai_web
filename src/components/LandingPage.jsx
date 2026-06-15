@@ -254,58 +254,58 @@ export default function LandingPage() {
       {/* Pricing Section */}
       <section id="pricing" className="pricing-section">
         <h2>Simple, Transparent Pricing</h2>
-        <p className="pricing-subtitle">All features available on both iOS and Android</p>
+        <p className="pricing-subtitle">Pay with AI tokens. Go ad-free with Premium. Available on both iOS and Android.</p>
 
         <div className="pricing-cards">
           <div className="pricing-card starter">
-            <div className="pricing-name">Essential</div>
+            <div className="pricing-name">Free</div>
             <div className="pricing-price">
               <span>Free</span>
             </div>
-            <p className="pricing-description">Perfect for beginners</p>
+            <p className="pricing-description">Start with 20,000 free tokens</p>
             <ul className="pricing-features">
-              <li>Real-time stock quotes</li>
-              <li>Basic charting</li>
-              <li>1 watchlist</li>
-              <li>Daily market analysis</li>
+              <li>20,000 free AI tokens on sign-up</li>
+              <li>Earn 25,000 more tokens by watching ads</li>
+              <li>Real-time stock quotes & charting</li>
+              <li>AI-powered market analysis</li>
+              <li>Ad-supported experience</li>
             </ul>
             <button className="btn btn-secondary">Get Started</button>
           </div>
 
           <div className="pricing-card professional">
-            <div className="pricing-badge">Most Popular</div>
-            <div className="pricing-name">Professional</div>
+            <div className="pricing-badge">Best Value</div>
+            <div className="pricing-name">Premium Pack</div>
             <div className="pricing-price">
-              <span>$9.99</span>
-              <span className="period">/month</span>
+              <span>$49</span>
             </div>
-            <p className="pricing-description">For active traders</p>
+            <p className="pricing-description">For serious, active traders</p>
             <ul className="pricing-features">
-              <li>All Essential features</li>
-              <li>AI-powered predictions</li>
-              <li>Unlimited watchlists</li>
-              <li>Advanced technical indicators</li>
-              <li>Priority support</li>
+              <li>Largest AI token allocation</li>
+              <li>Ad-free experience</li>
+              <li>Faster access to AI analysis</li>
+              <li>Enhanced analytics & insights</li>
+              <li>Priority customer support</li>
             </ul>
-            <button className="btn btn-primary">Start Free Trial</button>
+            <button className="btn btn-primary">Go Premium</button>
           </div>
 
           <div className="pricing-card enterprise">
-            <div className="pricing-name">Enterprise</div>
+            <div className="pricing-name">Standard Pack</div>
             <div className="pricing-price">
-              <span>Custom</span>
+              <span>$29</span>
             </div>
-            <p className="pricing-description">For institutions</p>
+            <p className="pricing-description">More tokens, no ads</p>
             <ul className="pricing-features">
-              <li>All Professional features</li>
-              <li>Custom AI models</li>
-              <li>Dedicated account manager</li>
-              <li>White-label options</li>
-              <li>API access</li>
+              <li>Large AI token allocation</li>
+              <li>Ad-free experience</li>
+              <li>Extended token validity</li>
+              <li>Premium customer support</li>
             </ul>
-            <button className="btn btn-secondary">Contact Sales</button>
+            <button className="btn btn-secondary">Get Standard</button>
           </div>
         </div>
+        <p className="pricing-note">Token allocations and pricing may vary by region, platform, and promotional offers. Need tokens only? Top-ups are available right inside the app.</p>
       </section>
 
       {/* Comparison Table */}
@@ -368,7 +368,7 @@ export default function LandingPage() {
             </div>
             <div className="benefit">
               <span>✓</span>
-              <span>Premium features 14-day trial</span>
+              <span>20,000 free tokens to start</span>
             </div>
             <div className="benefit">
               <span>✓</span>
