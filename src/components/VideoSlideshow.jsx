@@ -19,66 +19,53 @@ const VideoSlideshow = ({ onDownloadiOS }) => {
         {
             type: 'image',
             mobileSrc: pic1,
-            badge: "Powered by Advanced AI",
-            title: "Professional Stock Analysis",
-            subtitle: "Evolved Beyond Human Limits",
-            description: "Experience institutional-grade financial intelligence powered by neural networks trained on decades of market data. Make investment decisions with AI-backed confidence.",
-            stats: [
-                { value: "94%", label: "Prediction Accuracy" },
-                { value: "24/7", label: "Market Monitoring" },
-                { value: "10M+", label: "Data Points/Day" }
-            ]
-        },
-        {
-            type: 'image',
-            mobileSrc: pic1,
-            badge: "AI-Powered Insights",
-            title: "Smart Stock Recommendations",
-            subtitle: "Data-Driven Investment Decisions",
-            description: "Get personalized stock recommendations powered by advanced AI algorithms. Our intelligent system analyzes market trends, company fundamentals, and real-time data to help you make informed investment choices.",
+            badge: "AI-POWERED STOCK ANALYSIS",
+            title: "Understand Stocks. Go Deeper.",
+            subtitle: "Powerful Analysis. One Intelligent Platform.",
+            description: "Explore stocks through AI-powered analysis of market data, company fundamentals, technical indicators and key financial metrics — all in one place.",
             stats: [
                 { value: "500+", label: "Stocks Analyzed" },
-                { value: "Real-time", label: "Market Updates" },
-                { value: "AI-Driven", label: "Predictions" }
+                { value: "10M+", label: "Data Points" },
+                { value: "Real-Time", label: "Market Data" }
             ]
         },
         {
             type: 'image',
             mobileSrc: pic2,
-            badge: "Portfolio Management",
-            title: "Track Your Investments",
-            subtitle: "Complete Portfolio Overview",
-            description: "Monitor your entire investment portfolio in one place. Track performance, analyze gains and losses, and get detailed insights into your holdings with our comprehensive portfolio management tools.",
+            badge: "AI-POWERED INSIGHTS",
+            title: "Turn Market Data Into Clear Insights",
+            subtitle: "Analysis That Helps You Understand the Bigger Picture",
+            description: "WinstAI brings together market trends, financial data and company information to help you explore stocks, identify key factors and understand what matters.",
             stats: [
-                { value: "Live", label: "Portfolio Tracking" },
-                { value: "Detailed", label: "Analytics" },
-                { value: "Multi-Asset", label: "Support" }
+                { value: "AI-Powered", label: "Analysis" },
+                { value: "Real-Time", label: "Market Updates" },
+                { value: "Multi-Factor", label: "Insights" }
             ]
         },
         {
             type: 'image',
             mobileSrc: pic3,
-            badge: "Market Intelligence",
-            title: "Advanced Market Analysis",
-            subtitle: "Stay Ahead of the Market",
-            description: "Access institutional-grade market analysis and insights. Our AI-powered platform provides deep market intelligence, sector analysis, and trend predictions to keep you ahead of the curve.",
+            badge: "PORTFOLIO INSIGHTS",
+            title: "Your Portfolio. One Complete View.",
+            subtitle: "Track. Analyze. Understand.",
+            description: "Monitor your holdings in one place. Review portfolio performance, explore gains and losses, and get detailed insights across your investments.",
             stats: [
-                { value: "24/7", label: "Market Monitoring" },
-                { value: "Global", label: "Market Coverage" },
-                { value: "Expert", label: "Analysis" }
+                { value: "Live", label: "Portfolio Tracking" },
+                { value: "Detailed", label: "Performance Analysis" },
+                { value: "Multi-Asset", label: "Support" }
             ]
         },
         {
             type: 'image',
             mobileSrc: pic4,
-            badge: "Risk Management",
-            title: "Intelligent Risk Assessment",
-            subtitle: "Invest with Confidence",
-            description: "Make safer investment decisions with our advanced risk assessment tools. Our AI evaluates risk factors, volatility patterns, and market conditions to help you build a balanced and secure portfolio.",
+            badge: "REAL-TIME MARKET INTELLIGENCE",
+            title: "Stay Informed. Understand the Market.",
+            subtitle: "The Data You Need. The Insights That Matter.",
+            description: "Stay connected to market movements with real-time data, stock analysis, financial metrics and AI-powered insights designed to make complex market information easier to understand.",
             stats: [
-                { value: "Smart", label: "Risk Analysis" },
-                { value: "Automated", label: "Alerts" },
-                { value: "Secure", label: "Platform" }
+                { value: "Real-Time", label: "Market Data" },
+                { value: "Deep", label: "Stock Analysis" },
+                { value: "AI-Powered", label: "Insights" }
             ]
         }
     ];

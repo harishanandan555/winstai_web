@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import {
   Download,
-  Smartphone,
   TrendingUp,
   BarChart3,
   Brain,
   Zap,
   ArrowRight,
   Shield,
-  Lightbulb,
-  Star,
   ChevronDown,
-  Sparkles,
-  Lock,
+  Check,
   Cpu,
-  Wind,
-  Activity
+  Users
 } from 'lucide-react';
 import '../styles/LandingPage.css';
 import VideoSlideshow from './VideoSlideshow';
@@ -46,60 +41,39 @@ export default function LandingPage() {
   const features = [
     {
       icon: Brain,
-      title: "Neural AI Engine",
-      description: "Advanced machine learning powered by neural networks analyzes millions of data points in milliseconds to predict market movements with 94% accuracy.",
+      title: "AI Analysis Engine",
+      description: "Advanced AI models analyze financial, market and company data to generate clear, structured insights across multiple factors.",
       color: "cyan"
     },
     {
       icon: BarChart3,
       title: "Professional Charts",
-      description: "Institutional-grade charting with 50+ technical indicators, advanced drawing tools, and customizable timeframes from 1-minute to yearly.",
+      description: "Explore price movements with advanced charts, 50+ technical indicators, drawing tools and customizable timeframes from 1-minute to yearly.",
       color: "green"
     },
     {
       icon: TrendingUp,
-      title: "Predictive Analytics",
-      description: "AI-powered trend predictions with confidence scores. Get ahead of market moves with our proprietary forecasting models.",
+      title: "Market Intelligence",
+      description: "Bring together market trends, sector activity, price movements and key market data to better understand changing market conditions.",
       color: "orange"
     },
     {
       icon: Zap,
-      title: "Real-Time Streaming",
-      description: "Sub-millisecond latency data streaming with zero delays. See market movements as they happen, giving you an edge over competitors.",
+      title: "Real-Time Market Data",
+      description: "Access continuously updated market data and track price movements, market activity and key indicators as they change.",
       color: "red"
     },
     {
       icon: Shield,
-      title: "Enterprise Security",
-      description: "Military-grade 256-bit encryption, biometric authentication, and multi-factor security protocols protect your portfolio.",
+      title: "Data Security",
+      description: "Built with modern security practices, including 256-bit encryption, biometric authentication and multi-factor security controls to help protect your account and data.",
       color: "cyan"
     },
     {
       icon: Cpu,
-      title: "AI Recommendations",
-      description: "Personalized investment suggestions powered by your risk profile, goals, and market conditions using deep learning models.",
+      title: "AI-Powered Insights",
+      description: "Explore personalized insights based on your selected stocks, portfolio information, market data and analytical preferences.",
       color: "green"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Marcus Chen",
-      title: "Investment Advisor",
-      text: "WINSTAI has revolutionized how I advise my clients. The AI predictions are eerily accurate, and the interface is intuitive.",
-      avatar: "MC"
-    },
-    {
-      name: "Sarah Mitchell",
-      title: "Day Trader",
-      text: "The real-time insights and notifications have consistently improved my trading performance. ROI up by 34% in 3 months.",
-      avatar: "SM"
-    },
-    {
-      name: "David Park",
-      title: "Portfolio Manager",
-      text: "Professional-grade analysis in your pocket. This replaces thousands of dollars in Bloomberg terminals with better insights.",
-      avatar: "DP"
     }
   ];
 
@@ -119,8 +93,8 @@ export default function LandingPage() {
             <button onClick={() => scrollToSection('features')} className="nav-link">
               Features
             </button>
-            <button onClick={() => scrollToSection('testimonials')} className="nav-link">
-              Testimonials
+            <button onClick={() => scrollToSection('research')} className="nav-link">
+              Research
             </button>
             <button onClick={() => scrollToSection('pricing')} className="nav-link">
               Pricing
@@ -151,8 +125,8 @@ export default function LandingPage() {
       {/* Premium Features */}
       <section id="features" className="premium-features">
         <div className="features-header">
-          <h2>Institutional-Grade Technology</h2>
-          <p>Professional tools that used to cost thousands per month, now in your pocket</p>
+          <h2>Built for Intelligent Market Analysis</h2>
+          <p>Modern technology designed to bring market data, analysis and insights together in one powerful platform.</p>
         </div>
 
         <div className="features-grid">
@@ -186,81 +160,47 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Technical Specs */}
-      <section className="tech-specs">
-        <div className="specs-container">
-          <h2>Built for Performance</h2>
+      {/* Research */}
+      <section id="research" className="research-section">
+        <h2>Designed for Smarter Market Research</h2>
+        <p className="research-subtitle">Bring complex market information together in one place.</p>
 
-          <div className="specs-grid">
-            <div className="spec-card">
-              <Cpu className="spec-icon" />
-              <h4>Sub-Millisecond Latency</h4>
-              <p>Real-time data streaming with zero delays. See market movements as they happen.</p>
-            </div>
-
-            <div className="spec-card">
-              <Wind className="spec-icon" />
-              <h4>99.99% Uptime SLA</h4>
-              <p>Enterprise-grade infrastructure ensures markets never catch you offline.</p>
-            </div>
-
-            <div className="spec-card">
-              <Lock className="spec-icon" />
-              <h4>Military-Grade Security</h4>
-              <p>256-bit encryption, biometric auth, and multi-factor protection for peace of mind.</p>
-            </div>
-
-            <div className="spec-card">
-              <Activity className="spec-icon" />
-              <h4>10M+ Data Points Daily</h4>
-              <p>Analyzed by our AI to identify patterns human traders miss.</p>
-            </div>
+        <div className="research-grid">
+          <div className="research-card">
+            <Brain className="research-icon" />
+            <h3>AI-Powered Analysis</h3>
+            <p>Explore stocks using AI-assisted analysis across market data, financials, technical indicators and company information.</p>
           </div>
-        </div>
-      </section>
 
-      {/* Testimonials */}
-      <section id="testimonials" className="testimonials-section">
-        <h2>Trusted by Professional Traders</h2>
+          <div className="research-card">
+            <BarChart3 className="research-icon" />
+            <h3>Comprehensive Market Insights</h3>
+            <p>Understand price movements, financial performance, technical trends and broader market conditions from multiple perspectives.</p>
+          </div>
 
-        <div className="testimonials-grid">
-          {testimonials.map((testimonial, idx) => (
-            <div key={idx} className="testimonial-card">
-              <div className="testimonial-header">
-                <div className="avatar">{testimonial.avatar}</div>
-                <div>
-                  <div className="testimonial-name">{testimonial.name}</div>
-                  <div className="testimonial-title">{testimonial.title}</div>
-                </div>
-              </div>
-
-              <div className="star-rating">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="star-filled" />
-                ))}
-              </div>
-
-              <p className="testimonial-text">"{testimonial.text}"</p>
-            </div>
-          ))}
+          <div className="research-card">
+            <Users className="research-icon" />
+            <h3>Built for Investors</h3>
+            <p>Research stocks, monitor portfolios and explore market information through a single, intuitive platform.</p>
+          </div>
         </div>
       </section>
 
       {/* Pricing Section */}
       <section id="pricing" className="pricing-section">
         <h2>Simple, Transparent Pricing</h2>
-        <p className="pricing-subtitle">Pay with AI tokens. Go ad-free with Premium. Available on iOS.</p>
+        <p className="pricing-subtitle">Choose the plan that fits your market research needs.</p>
 
         <div className="pricing-cards">
           <div className="pricing-card starter">
             <div className="pricing-name">Free</div>
             <div className="pricing-price">
-              <span>Free</span>
+              <span>$0</span>
             </div>
-            <p className="pricing-description">Start with 20,000 free tokens</p>
+            <p className="pricing-description">Start exploring Winst AI with 20,000 AI tokens</p>
             <ul className="pricing-features">
-              <li>20,000 free AI tokens on sign-up</li>
-              <li>Earn 25,000 more tokens by watching ads</li>
+              <li>20,000 AI tokens on sign-up</li>
+              <li>Earn additional tokens by watching ads</li>
               <li>Real-time stock quotes & charting</li>
               <li>AI-powered market analysis</li>
               <li>Ad-supported experience</li>
@@ -274,7 +214,7 @@ export default function LandingPage() {
             <div className="pricing-price">
               <span>$49</span>
             </div>
-            <p className="pricing-description">For serious, active traders</p>
+            <p className="pricing-description">For deeper market research</p>
             <ul className="pricing-features">
               <li>Largest AI token allocation</li>
               <li>Ad-free experience</li>
@@ -290,7 +230,7 @@ export default function LandingPage() {
             <div className="pricing-price">
               <span>$29</span>
             </div>
-            <p className="pricing-description">More tokens, no ads</p>
+            <p className="pricing-description">More analysis. Fewer interruptions.</p>
             <ul className="pricing-features">
               <li>Large AI token allocation</li>
               <li>Ad-free experience</li>
@@ -300,50 +240,62 @@ export default function LandingPage() {
             <button className="btn btn-secondary">Get Standard</button>
           </div>
         </div>
+        <p className="pricing-note-primary">AI tokens are used when you access AI-powered analysis and insights within Winst AI</p>
         <p className="pricing-note">Token allocations and pricing may vary by region, platform, and promotional offers. Need tokens only? Top-ups are available right inside the app.</p>
       </section>
 
       {/* Comparison Table */}
       <section className="comparison-section">
-        <h2>Why Choose WINSTAI?</h2>
+        <h2>Why Choose Winst AI</h2>
         <div className="comparison-table">
           <div className="table-header">
-            <div className="table-cell">Feature</div>
+            <div className="table-cell">Capability</div>
             <div className="table-cell">WINSTAI</div>
-            <div className="table-cell">Traditional Platforms</div>
           </div>
 
           <div className="table-row">
             <div className="table-cell">AI-Powered Analysis</div>
-            <div className="table-cell"><Sparkles size={20} className="check" /></div>
-            <div className="table-cell">×</div>
+            <div className="table-cell"><Check size={20} className="check" /></div>
           </div>
 
           <div className="table-row">
-            <div className="table-cell">Mobile-First Design</div>
-            <div className="table-cell"><Sparkles size={20} className="check" /></div>
-            <div className="table-cell">×</div>
+            <div className="table-cell">Real-Time Market Data</div>
+            <div className="table-cell"><Check size={20} className="check" /></div>
           </div>
 
           <div className="table-row">
-            <div className="table-cell">Real-Time Notifications</div>
-            <div className="table-cell"><Sparkles size={20} className="check" /></div>
-            <div className="table-cell">Basic</div>
+            <div className="table-cell">Financial Analysis</div>
+            <div className="table-cell"><Check size={20} className="check" /></div>
           </div>
 
           <div className="table-row">
-            <div className="table-cell">Cost</div>
-            <div className="table-cell">From Free</div>
-            <div className="table-cell">$2000+/month</div>
+            <div className="table-cell">Technical Analysis</div>
+            <div className="table-cell"><Check size={20} className="check" /></div>
+          </div>
+
+          <div className="table-row">
+            <div className="table-cell">Portfolio Insights</div>
+            <div className="table-cell"><Check size={20} className="check" /></div>
+          </div>
+
+          <div className="table-row">
+            <div className="table-cell">Advanced Charts & Indicators</div>
+            <div className="table-cell"><Check size={20} className="check" /></div>
+          </div>
+
+          <div className="table-row">
+            <div className="table-cell">Mobile-First Experience</div>
+            <div className="table-cell"><Check size={20} className="check" /></div>
           </div>
         </div>
+        <p className="comparison-note">Explore market information from multiple perspectives — powered by AI and presented in one intuitive platform.</p>
       </section>
 
       {/* Premium CTA */}
       <section className="premium-cta">
         <div className="cta-content">
-          <h2>Join 500K+ Professional Traders</h2>
-          <p>Start making smarter investment decisions today with AI-powered market intelligence</p>
+          <h2>Understand More. Analyze Better.</h2>
+          <p>Explore stocks and markets with AI-powered analysis, real-time data and comprehensive financial insights.</p>
 
           <div className="cta-button-group">
             <button className="btn btn-primary btn-xl" onClick={handleDownloadiOS}>
@@ -359,7 +311,7 @@ export default function LandingPage() {
             </div>
             <div className="benefit">
               <span>✓</span>
-              <span>20,000 free tokens to start</span>
+              <span>20,000 AI tokens to start</span>
             </div>
             <div className="benefit">
               <span>✓</span>
