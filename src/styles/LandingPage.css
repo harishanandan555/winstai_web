@@ -1329,8 +1329,16 @@ body {
 }
 
 @media (max-width: 768px) {
+  /* The hero is a full-bleed slideshow that supplies its own padding --
+     insetting it here just framed the banner in page background. */
   .premium-hero {
-    padding: 3rem 1rem;
+    padding: 0;
+  }
+
+  /* The hero flows at this width, so the CTA already sits at its bottom
+     edge; the absolutely positioned chevron would land on top of it. */
+  .scroll-indicator {
+    display: none;
   }
 
   .hero-title {

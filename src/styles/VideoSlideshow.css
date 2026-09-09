@@ -48,10 +48,13 @@
   display: block;
   position: absolute;
   right: 8%;
-  top: 50%;
+  top: 44%;
   transform: translateY(-50%);
-  width: 380px;
-  aspect-ratio: 9/19.5;
+  width: 342px;
+  aspect-ratio: 5 / 9;
+  /* 5/9 matches the artwork, so the box hugs the phone with no letterboxing.
+     Height and width scale together -- object-fit: contain preserves the
+     aspect ratio, so shrinking height alone would squash the handset. */
   background: transparent;
   box-shadow: none;
   border: none;
@@ -59,10 +62,19 @@
 }
 
 .mobile-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
   background: transparent;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.mobile-video.active {
+  opacity: 1;
 }
 
 .hero-content-overlay {
@@ -108,7 +120,7 @@
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
   border: 1px solid rgba(0, 212, 255, 0.4);
   border-radius: 30px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: #00d4ff;
   margin-bottom: 2rem;
@@ -135,8 +147,7 @@
 
 /* Hero Title */
 .hero-title {
-  font-size: 3rem;
-  /* Reduced from 3.5rem */
+  font-size: 2.4rem;
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 0.75rem;
@@ -149,13 +160,11 @@
 
 .title-line-1 {
   color: #ffffff;
-  font-size: 3rem;
-  /* Reduced from 3.5rem */
+  font-size: 2.4rem;
 }
 
 .title-line-2 {
-  font-size: 3.5rem;
-  /* Reduced from 4.5rem */
+  font-size: 2.8rem;
 }
 
 .gradient-text {
@@ -179,8 +188,7 @@
 
 /* Hero Description */
 .hero-description {
-  font-size: 1.15rem;
-  /* Slightly reduced */
+  font-size: 1rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.5rem;
@@ -202,8 +210,7 @@
 }
 
 .stat-value {
-  font-size: 2.5rem;
-  /* Reduced from 3rem */
+  font-size: 2rem;
   font-weight: 800;
   background: linear-gradient(135deg, #00d4ff, #8b5cf6);
   -webkit-background-clip: text;
@@ -214,7 +221,7 @@
 }
 
 .stat-label {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
   text-transform: uppercase;
@@ -327,4 +334,264 @@
 
 .bottom-buttons .btn {
   min-width: 200px;
+}
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+/* Tablet: pull the handset in so it stops colliding with the copy. */
+@media (max-width: 1024px) {
+  .video-slideshow-fullwidth {
+    min-height: 620px;
+  }
+
+  .video-slideshow-fullwidth .mobile-video-container {
+    width: 260px;
+    right: 5%;
+  }
+
+  .video-slideshow-fullwidth .hero-content {
+    max-width: 52%;
+  }
+
+  .video-slideshow-fullwidth .title-line-1 {
+    font-size: 2rem;
+  }
+
+  .video-slideshow-fullwidth .title-line-2 {
+    font-size: 2.3rem;
+  }
+
+  .video-slideshow-fullwidth .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .video-slideshow-fullwidth .hero-stats {
+    gap: 2rem;
+  }
+
+  .video-slideshow-fullwidth .stat-value {
+    font-size: 1.6rem;
+  }
+
+  .video-slideshow-fullwidth .prev-arrow {
+    left: 12px;
+  }
+
+  .video-slideshow-fullwidth .next-arrow {
+    right: 12px;
+  }
+}
+
+/* Phones: the desktop hero is a fixed 100vh box with `overflow: hidden`
+   and every child absolutely positioned, so the handset and the download
+   button fell past the bottom edge and got clipped. Below 768px the hero
+   lays out as a grid in normal flow -- copy, then the handset flanked by
+   the arrows, then the CTA -- so the section grows with its content and
+   nothing is cut off. Rules are scoped to .video-slideshow-fullwidth
+   because LandingPage.css claims the same class names at these widths. */
+@media (max-width: 768px) {
+  .video-slideshow-fullwidth {
+    height: auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "copy  copy  copy"
+      "prev  phone next"
+      "cta   cta   cta";
+    align-items: center;
+    row-gap: 1.25rem;
+    padding-top: 2rem;
+  }
+
+  .video-slideshow-fullwidth .hero-content-overlay {
+    grid-area: copy;
+    position: relative;
+    height: auto;
+    padding: 0 20px;
+    /* Stack the slides in a single grid cell: the crossfade still works
+       and the container keeps the height of the tallest slide. */
+    display: grid;
+  }
+
+  .video-slideshow-fullwidth .hero-content {
+    grid-area: 1 / 1;
+    position: relative;
+    max-width: 100%;
+  }
+
+  .video-slideshow-fullwidth .mobile-video-container {
+    --phone-width: min(56vw, 230px);
+    --phone-visible: 0.8;
+
+    grid-area: phone;
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    justify-self: center;
+    width: var(--phone-width);
+    /* Box is shorter than the 5/9 artwork while the image below keeps its
+       full height, so the bottom of the handset is cropped away. The mask
+       softens that edge so it reads as the phone sliding out of frame
+       rather than a clipped image. */
+    aspect-ratio: auto;
+    height: calc(var(--phone-width) * 1.8 * var(--phone-visible));
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 88%, transparent 100%);
+    /* Pulled up out of the row and flush against the download bar. */
+    margin-top: -1.75rem;
+    margin-bottom: -1.25rem;
+  }
+
+  .video-slideshow-fullwidth .mobile-video {
+    height: calc(var(--phone-width) * 1.8);
+  }
+
+  .video-slideshow-fullwidth .nav-arrow {
+    position: static;
+    transform: none;
+    width: 42px;
+    height: 42px;
+    margin: 0 6px;
+    justify-self: center;
+  }
+
+  .video-slideshow-fullwidth .nav-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .video-slideshow-fullwidth .nav-arrow:hover {
+    transform: scale(1.05);
+  }
+
+  .video-slideshow-fullwidth .prev-arrow {
+    grid-area: prev;
+  }
+
+  .video-slideshow-fullwidth .next-arrow {
+    grid-area: next;
+  }
+
+  .video-slideshow-fullwidth .bottom-download-section {
+    grid-area: cta;
+    position: relative;
+    bottom: auto;
+    padding: 2rem 20px 2.25rem;
+  }
+
+  .video-slideshow-fullwidth .hero-badge {
+    padding: 8px 16px;
+    font-size: 11px;
+    margin-bottom: 1.25rem;
+  }
+
+  .video-slideshow-fullwidth .badge-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .video-slideshow-fullwidth .hero-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .video-slideshow-fullwidth .title-line-1 {
+    font-size: 1.75rem;
+  }
+
+  .video-slideshow-fullwidth .title-line-2 {
+    font-size: 2rem;
+  }
+
+  .video-slideshow-fullwidth .hero-description {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  .video-slideshow-fullwidth .hero-stats {
+    flex-direction: row;
+    gap: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .video-slideshow-fullwidth .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .video-slideshow-fullwidth .stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+
+  .video-slideshow-fullwidth .btn {
+    padding: 0.9rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-slideshow-fullwidth {
+    row-gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .video-slideshow-fullwidth .hero-content-overlay {
+    padding: 0 16px;
+  }
+
+  .video-slideshow-fullwidth .hero-title,
+  .video-slideshow-fullwidth .title-line-1 {
+    font-size: 1.5rem;
+  }
+
+  .video-slideshow-fullwidth .title-line-2 {
+    font-size: 1.7rem;
+  }
+
+  .video-slideshow-fullwidth .hero-description {
+    font-size: 0.875rem;
+  }
+
+  .video-slideshow-fullwidth .hero-stats {
+    gap: 0.9rem;
+  }
+
+  .video-slideshow-fullwidth .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .video-slideshow-fullwidth .stat-label {
+    font-size: 0.6rem;
+  }
+
+  .video-slideshow-fullwidth .mobile-video-container {
+    --phone-width: min(60vw, 200px);
+    margin-top: -1.5rem;
+    margin-bottom: -1rem;
+  }
+
+  .video-slideshow-fullwidth .nav-arrow {
+    width: 36px;
+    height: 36px;
+    margin: 0 2px;
+  }
+
+  .video-slideshow-fullwidth .nav-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .video-slideshow-fullwidth .bottom-download-section {
+    padding: 1.5rem 16px 1.75rem;
+  }
+
+  .video-slideshow-fullwidth .bottom-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
