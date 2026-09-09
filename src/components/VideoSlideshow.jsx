@@ -110,16 +110,6 @@ const VideoSlideshow = ({ onDownloadiOS }) => {
                         src={slide.mobileSrc}
                         alt={slide.title}
                         className={`mobile-video ${index === currentSlide ? 'active' : ''}`}
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'contain',
-                            opacity: index === currentSlide ? 1 : 0,
-                            transition: 'opacity 1s ease-in-out'
-                        }}
                     />
                 ))}
             </div>
